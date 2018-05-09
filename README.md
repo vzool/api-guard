@@ -1,6 +1,22 @@
 ApiHmacGuard
 ========
 
+### Fork overview points:
+
+1- API tokens should never be saved in the database, which help us secure users token and protect them against impersonate user account by using tokens that leaked from database if breach take place.
+
+2- Database will save a `public_key` which is an endpoint to access key pairs record, this key should be unique and indexed.
+
+3- Database will save a `private_key` which will be kept private at server side.
+
+4- Token which is a `shared_key` will be generated every time when the request happen.
+
+5- Token will be generated on the fly by Hmac and using Application Key `config('app.key')` as server private key with `private_key` which considered a client private key on server side.
+
+6- Default Hmac algo is `sha3-384`, there are many algo out [there](http://php.net/manual/en/function.hash-hmac-algos.php).
+
+7- If you change Hmac alog, the key length will be different which depends on algo itself.
+
 [![Latest Stable Version](https://poser.pugx.org/chrisbjr/api-guard/v/stable)](https://packagist.org/packages/chrisbjr/api-guard) [![Total Downloads](https://poser.pugx.org/chrisbjr/api-guard/downloads)](https://packagist.org/packages/chrisbjr/api-guard)
 
 [![Join the chat at https://gitter.im/chrisbjr/api-guard](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/chrisbjr/api-guard?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
