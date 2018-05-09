@@ -26,6 +26,38 @@ So, you should send these two keys to your clients and make them send back to se
 
 9- Never, never send or expose `priavte_key`.
 
+### Example
+
+```php
+
+>>> $key = ApiKey::make($person); // or $user
+=> Vzool\ApiHmacGuard\Models\ApiKey {#1256
+     public_key: "-15af2b946b069d-5mQykkuMmF8UDZIuZkG8AdFfB3udhYkGW-",
+     apikeyable_id: 1,
+     apikeyable_type: "App\Models\Person",
+     last_ip_address: "127.0.0.1",
+     last_used_at: Carbon\Carbon @1525856582 {#1263
+       date: 2018-05-09 12:03:02.723851 Asia/Riyadh (+03:00),
+     },
+     private_key: "-17AKPqotjcQBjzmdktluKiR5qUbyyzqWov-15af2b946b0c4-",
+     updated_at: "2018-05-09 12:03:02",
+     created_at: "2018-05-09 12:03:02",
+     id: 5,
+   }
+>>> $key->clientKeys()
+=> [
+     "endpoint" => "-15af2b946b069d-5mQykkuMmF8UDZIuZkG8AdFfB3udhYkGW-",
+     "token" => "9f9de38c4405a747fc25dd146b2ee6a30e8ea627c7da26d5a616c4c2fcb9ec896b4020febcb4971a65b97959c5d5625a",
+   ]
+>>> 
+>>> $key->public_key()
+=> "-15af2b946b069d-5mQykkuMmF8UDZIuZkG8AdFfB3udhYkGW-"
+>>> $key->shared_key()
+=> "9f9de38c4405a747fc25dd146b2ee6a30e8ea627c7da26d5a616c4c2fcb9ec896b4020febcb4971a65b97959c5d5625a"
+
+
+```
+
 [![Latest Stable Version](https://poser.pugx.org/chrisbjr/api-guard/v/stable)](https://packagist.org/packages/chrisbjr/api-guard) [![Total Downloads](https://poser.pugx.org/chrisbjr/api-guard/downloads)](https://packagist.org/packages/chrisbjr/api-guard)
 
 [![Join the chat at https://gitter.im/chrisbjr/api-guard](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/chrisbjr/api-guard?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)

@@ -41,6 +41,36 @@ class ApiKey extends Model
     }
 
     /**
+     * A method to access shared key
+     *
+     * @return string
+     */
+    public function shared_key()
+    {
+        return self::calculateSharedKey($this->private_key);
+    }
+
+    /**
+     * A method to access public key
+     *
+     * @return string
+     */
+    public function public_key()
+    {
+        return $this->public_key;
+    }
+
+    /**
+     * A method to access private key
+     *
+     * @return string
+     */
+    public function private_key()
+    {
+        return null;
+    }
+
+    /**
      * @param $apikeyable
      *
      * @return ApiKey
@@ -72,7 +102,7 @@ class ApiKey extends Model
         do {
             $newKey = '-' . substr(uniqid(1) .'-'. str_random(34), 0, 48) .'-';
         } // Already in the DB? Fail. Try again
-        while (self::keyExists($newKey));
+        while (self::publicKeyExists($newKey));
 
         return $newKey;
     }
@@ -93,7 +123,7 @@ class ApiKey extends Model
      * @param $public_key
      * @return string
      */
-    public static function generateSharedKey($public_key)
+    private static function generateSharedKey($public_key)
     {
 
         $apiKey = self::where('public_key', '=', $public_key)->limit(1)->first();
@@ -111,7 +141,7 @@ class ApiKey extends Model
      * @param $private_key
      * @return string
      */
-    public static function calculateSharedKey($private_key){
+    private static function calculateSharedKey($private_key){
 
         // get laravel application as private key
 
@@ -143,6 +173,10 @@ class ApiKey extends Model
         return false;
     }
 
+    /*=================================================*/
+    /* Some elequoent overrides to protect private key */
+    /*=================================================*/
+
     /**
      * Set the private_key for once.
      *
@@ -151,9 +185,19 @@ class ApiKey extends Model
      */
     public function setPrivateKeyAttribute($value)
     {
-        if(!$this->attributes['private_key']){
+        if(!$this->private_key){
 
             $this->attributes['private_key'] = $value;
         }
+    }
+
+    /**
+     * Get the private_key.
+     *
+     * @return null
+     */
+    public function getPrivateKeyAttribute()
+    {
+        return null;
     }
 }
