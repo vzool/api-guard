@@ -1,4 +1,4 @@
-ApiHmacGuard (Shared keys as a token on the fly)
+ApiHmacGuard (Impersonate Protection Algorithm)
 ========
 
 [![Latest Stable Version](https://poser.pugx.org/vzool/api-hmac-guard/v/stable)](https://packagist.org/packages/vzool/api-hmac-guard) [![Total Downloads](https://poser.pugx.org/vzool/api-hmac-guard/downloads)](https://packagist.org/packages/vzool/api-hmac-guard)
