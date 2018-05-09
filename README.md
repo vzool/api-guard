@@ -1,4 +1,4 @@
-ApiHmacGuard
+ApiHmacGuard (Shared keys as a token on the fly)
 ========
 
 ### Fork overview points:
