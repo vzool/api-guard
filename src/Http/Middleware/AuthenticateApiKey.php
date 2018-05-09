@@ -22,7 +22,7 @@ class AuthenticateApiKey
         $apiPublicKeyValue = $request->header(config('apiguard.header_public_key', 'X-Auth-EndPoint'));
         $apiSharedKeyValue = $request->header(config('apiguard.header_shared_key', 'X-Auth-Token'));
 
-        $apiKey = app(config('apiguard.models.api_key', 'Vzool\ApiHmacGuard\Models\ApiKey'))->where('key', $apiPublicKeyValue)
+        $apiKey = app(config('apiguard.models.api_key', 'Vzool\ApiHmacGuard\Models\ApiKey'))->where('public_key', $apiPublicKeyValue)
             ->first();
 
         // access the key record by public key
@@ -30,11 +30,9 @@ class AuthenticateApiKey
             return $this->unauthorizedResponse();
         }
 
-        // calculate the shared key and compare it with the user token
-        $shared_key = $apiKey->calculateSharedKey($apiKey->priavte_key);
-
-        // check if client shared key(Token) matches server one
-        if ($shared_key !== $apiSharedKeyValue) {
+        // calculate the shared key and compare it with the user token,
+        // then check if client shared key(Token) matches server one.
+        if ($apiKey->shared_key() !== $apiSharedKeyValue) {
             return $this->unauthorizedResponse();
         }
 
