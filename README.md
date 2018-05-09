@@ -15,7 +15,7 @@ ApiHmacGuard (Shared keys as a token on the fly)
 
 6- Default Hmac algo is `sha3-384`, there are many algo out [there](http://php.net/manual/en/function.hash-hmac-algos.php).
 
-7- If you change Hmac alog, the key length will be different which depends on algo itself.
+7- If you change Hmac algo, the key length will be different which depends on algo itself.
 
 8- The `Middleware` will expect two keys as headers which are:
 
