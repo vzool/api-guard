@@ -45,7 +45,7 @@ A simple way of authenticating your APIs with API HMAC keys using Laravel. This 
 - `X-Auth-EndPoint`: this is a `public_key`
 - `X-Auth-Token`: this is a `shared_key`
 
-So, you should send these two keys to your clients and make them send back to server.
+So, you should send these two keys to your clients and make them send it back to server.
 
 ### Quick Example
 
