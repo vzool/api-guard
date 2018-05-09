@@ -11,9 +11,10 @@ class ApiKey extends Model
 {
     use SoftDeletes;
 
+    protected $guarded  = ['private_key'];
+
     protected $fillable = [
         'public_key',
-        'private_key',
         'apikeyable_id',
         'apikeyable_type',
         'last_ip_address',
@@ -29,6 +30,17 @@ class ApiKey extends Model
     }
 
     /**
+     * @return array
+     */
+    public function clientKeys()
+    {
+        return [
+            'endpoint' => $this->public_key,
+            'token' => self::calculateSharedKey($this->private_key),
+        ];
+    }
+
+    /**
      * @param $apikeyable
      *
      * @return ApiKey
@@ -36,13 +48,14 @@ class ApiKey extends Model
     public static function make($apikeyable)
     {
         $apiKey = new ApiKey([
-            'public_key'      => ApiKey::generatePublicKey(),
-            'private_key'     => ApiKey::generatePrivateKey(),
+            'public_key'      => self::generatePublicKey(),
             'apikeyable_id'   => $apikeyable->id,
             'apikeyable_type' => get_class($apikeyable),
             'last_ip_address' => Request::ip(),
             'last_used_at'    => Carbon::now(),
         ]);
+
+        $apiKey->private_key = self::generatePrivateKey();
 
         $apiKey->save();
 
@@ -128,5 +141,19 @@ class ApiKey extends Model
         if ($apiKeyCount > 0) return true;
 
         return false;
+    }
+
+    /**
+     * Set the private_key for once.
+     *
+     * @param  string  $value
+     * @return void
+     */
+    public function setPrivateKeyAttribute($value)
+    {
+        if(!$this->attributes['private_key']){
+
+            $this->attributes['private_key'] = $value;
+        }
     }
 }

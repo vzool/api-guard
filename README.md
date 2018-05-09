@@ -120,6 +120,14 @@ $apiKey = Vzool\ApiHmacGuard\Models\ApiKey::make()
 $apiKey = Vzool\ApiHmacGuard\Models\ApiKey::make($model)
 ```
 
+To access client keys:
+
+```php
+
+$apiKey->clientKeys()
+
+```
+
 ## Usage
 
 You can start using ApiGuard by simply attaching the `auth.apikey` middleware to your API route:

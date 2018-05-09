@@ -44,10 +44,11 @@ class GenerateApiKey extends Command
 
         $apiKey = new ApiKey([
             'public_key'      => ApiKey::generatePublicKey(),
-            'private_key'     => ApiKey::generatePrivateKey(),
             'apikeyable_id'   => $apiKeyableId,
             'apikeyable_type' => $apiKeyableType,
         ]);
+
+        $apiKey->private_key = ApiKey::generatePrivateKey();
 
         $apiKey->save();
 
