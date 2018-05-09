@@ -1,7 +1,28 @@
 ApiHmacGuard (Shared keys as a token on the fly)
 ========
 
-### Fork overview points:
+[![Latest Stable Version](https://poser.pugx.org/vzool/api-hmac-guard/v/stable)](https://packagist.org/packages/vzool/api-hmac-guard) [![Total Downloads](https://poser.pugx.org/vzool/api-hmac-guard/downloads)](https://packagist.org/packages/vzool/api-hmac-guard)
+
+[![Join the chat at https://gitter.im/chrisbjr/api-guard](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/chrisbjr/api-guard?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+
+A simple way of authenticating your APIs with API keys using Laravel. This package uses the following libraries:
+
+- philsturgeon's [Fractal](https://github.com/thephpleague/fractal)
+- maximebeaudoin's [api-response](https://github.com/ellipsesynergie/api-response)
+
+## Laravel 5.3, 5.4 and 5.5 is finally supported!
+
+**Laravel 5.3.x onwards: `~4.*`
+
+**Laravel 5.1.x to 5.2.x: [`~3.*`](https://github.com/vzool/api-hmac-guard/blob/3.1/README.md)
+
+**Laravel 5.1.x: `~2.*`
+
+**Laravel 4.2.x: [`~1.*`](https://github.com/vzool/api-hmac-guard/tree/laravel4) (Recently updated version for Laravel 4. Please note that there are namespace changes here)
+
+**Laravel 4.2.x: [`0.*`](https://github.com/vzool/api-hmac-guard/tree/v0.7) (The version that most of you are using)
+
+## Fork overview points:
 
 1- API tokens should never be saved in the database, which help us secure users token and protect them against impersonate user account by using tokens that leaked from database if breach take place.
 
@@ -56,27 +77,6 @@ So, you should send these two keys to your clients and make them send back to se
 => null // private keys are always protected and writable for one time
 
 ```
-
-[![Latest Stable Version](https://poser.pugx.org/chrisbjr/api-guard/v/stable)](https://packagist.org/packages/chrisbjr/api-guard) [![Total Downloads](https://poser.pugx.org/chrisbjr/api-guard/downloads)](https://packagist.org/packages/chrisbjr/api-guard)
-
-[![Join the chat at https://gitter.im/chrisbjr/api-guard](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/chrisbjr/api-guard?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
-
-A simple way of authenticating your APIs with API keys using Laravel. This package uses the following libraries:
-
-- philsturgeon's [Fractal](https://github.com/thephpleague/fractal)
-- maximebeaudoin's [api-response](https://github.com/ellipsesynergie/api-response)
-
-## Laravel 5.3, 5.4 and 5.5 is finally supported!
-
-**Laravel 5.3.x onwards: `~4.*`
-
-**Laravel 5.1.x to 5.2.x: [`~3.*`](https://github.com/vzool/api-hmac-guard/blob/3.1/README.md)
-
-**Laravel 5.1.x: `~2.*`
-
-**Laravel 4.2.x: [`~1.*`](https://github.com/vzool/api-hmac-guard/tree/laravel4) (Recently updated version for Laravel 4. Please note that there are namespace changes here)
-
-**Laravel 4.2.x: [`0.*`](https://github.com/vzool/api-hmac-guard/tree/v0.7) (The version that most of you are using)
 
 ## Quick start
 
