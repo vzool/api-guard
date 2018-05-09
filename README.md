@@ -5,7 +5,7 @@ ApiHmacGuard (Shared keys as a token on the fly)
 
 [![Join the chat at https://gitter.im/chrisbjr/api-guard](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/chrisbjr/api-guard?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
-A simple way of authenticating your APIs with API keys using Laravel. This package uses the following libraries:
+A simple way of authenticating your APIs with API HMAC keys using Laravel. This package uses the following libraries:
 
 - philsturgeon's [Fractal](https://github.com/thephpleague/fractal)
 - maximebeaudoin's [api-response](https://github.com/ellipsesynergie/api-response)
