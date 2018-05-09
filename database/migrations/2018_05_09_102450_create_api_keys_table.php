@@ -13,6 +13,9 @@ class CreateApiKeysTable extends Migration
      */
     public function up()
     {
+        
+        Schema::dropIfExists('api_keys');
+
         Schema::create('api_keys', function (Blueprint $table) {
             $table->increments('id');
             $table->nullableMorphs('apikeyable');
