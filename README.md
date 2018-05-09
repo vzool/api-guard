@@ -51,7 +51,7 @@ A simple way of authenticating your APIs with API keys using Laravel. This packa
 
 ### Installation for Laravel 5.3 to 5.4
 
-Run `composer require chrisbjr/api-guard 4.*`
+Run `composer require vzool/api-hmac-guard 4.*`
 
 In your `config/app.php` add `Vzool\ApiHmacGuard\Providers\ApiGuardServiceProvider` to the end of the `providers` array
 
