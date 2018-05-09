@@ -11,11 +11,14 @@ return [
     | header
     |
     */
-    'header_key' => 'X-Authorization',
+    'header_public_key' => 'X-Auth-EndPoint',
+    'header_shared_key' => 'X-Auth-Token',
+    
+    'hmac_algo' => 'sha3-384', // for more algos see hash_hmac_algos(), http://php.net/manual/en/function.hash-hmac-algos.php
 
     'models' => [
 
-        'api_key' => 'Chrisbjr\ApiGuard\Models\ApiKey',
+        'api_key' => 'Vzool\ApiHmacGuard\Models\ApiKey',
 
     ],
 

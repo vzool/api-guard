@@ -1,9 +1,9 @@
 <?php
 
-namespace Chrisbjr\ApiGuard\Providers;
+namespace Vzool\ApiHmacGuard\Providers;
 
-use Chrisbjr\ApiGuard\Console\Commands\GenerateApiKey;
-use Chrisbjr\ApiGuard\Http\Middleware\AuthenticateApiKey;
+use Vzool\ApiHmacGuard\Console\Commands\GenerateApiKey;
+use Vzool\ApiHmacGuard\Http\Middleware\AuthenticateApiKey;
 use Illuminate\Routing\Router;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\ServiceProvider;

@@ -1,10 +1,10 @@
 <?php
 
-namespace Chrisbjr\ApiGuard\Http\Middleware;
+namespace Vzool\ApiHmacGuard\Http\Middleware;
 
 use Carbon\Carbon;
-use Chrisbjr\ApiGuard\Events\ApiKeyAuthenticated;
-use Chrisbjr\ApiGuard\Models\Device;
+use Vzool\ApiHmacGuard\Events\ApiKeyAuthenticated;
+use Vzool\ApiHmacGuard\Models\Device;
 use Closure;
 
 class AuthenticateApiKey
@@ -19,12 +19,22 @@ class AuthenticateApiKey
      */
     public function handle($request, Closure $next, $guard = null)
     {
-        $apiKeyValue = $request->header(config('apiguard.header_key', 'X-Authorization'));
+        $apiPublicKeyValue = $request->header(config('apiguard.header_public_key', 'X-Auth-EndPoint'));
+        $apiSharedKeyValue = $request->header(config('apiguard.header_shared_key', 'X-Auth-Token'));
 
-        $apiKey = app(config('apiguard.models.api_key', 'Chrisbjr\ApiGuard\Models\ApiKey'))->where('key', $apiKeyValue)
+        $apiKey = app(config('apiguard.models.api_key', 'Vzool\ApiHmacGuard\Models\ApiKey'))->where('key', $apiPublicKeyValue)
             ->first();
 
+        // access the key record by public key
         if (empty($apiKey)) {
+            return $this->unauthorizedResponse();
+        }
+
+        // calculate the shared key and compare it with the user token
+        $shared_key = $apiKey->calculateSharedKey($apiKey->priavte_key);
+
+        // check if client shared key(Token) matches server one
+        if ($shared_key !== $apiSharedKeyValue) {
             return $this->unauthorizedResponse();
         }
 

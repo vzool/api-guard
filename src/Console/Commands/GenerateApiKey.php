@@ -1,8 +1,8 @@
 <?php
 
-namespace Chrisbjr\ApiGuard\Console\Commands;
+namespace Vzool\ApiHmacGuard\Console\Commands;
 
-use Chrisbjr\ApiGuard\Models\ApiKey;
+use Vzool\ApiHmacGuard\Models\ApiKey;
 use Illuminate\Console\Command;
 
 class GenerateApiKey extends Command
@@ -21,7 +21,7 @@ class GenerateApiKey extends Command
      *
      * @var string
      */
-    protected $description = 'Generate an API key';
+    protected $description = 'Generate an API pair keys';
 
     /**
      * Create a new command instance.
@@ -43,14 +43,24 @@ class GenerateApiKey extends Command
         $apiKeyableType = $this->option('type');
 
         $apiKey = new ApiKey([
-            'key'             => ApiKey::generateKey(),
+            'public_key'      => ApiKey::generatePublicKey(),
+            'private_key'     => ApiKey::generatePrivateKey(),
             'apikeyable_id'   => $apiKeyableId,
             'apikeyable_type' => $apiKeyableType,
         ]);
 
         $apiKey->save();
 
-        $this->info('An API key was created with the following key: ' . $apiKey->key);
+        $this->info('====================================================');
+        $this->info('An API keys was created with the following details: ');
+        $this->info('====================================================');
+        $this->info('Public Key: ' . $apiKey->public_key);
+        $this->info('Shared Key: ' . ApiKey::calculateSharedKey($apiKey->private_key));
+        $this->info('====================================================');
+        $this->info('In order to use these keys just set them in the headers:');
+        $this->info('Header of Public Key: ' . config('apiguard.header_public_key'));
+        $this->info('Header of Shared Key: ' . config('apiguard.header_shared_key'));
+        $this->info('====================================================');
 
         return;
     }

@@ -1,6 +1,6 @@
 <?php
 
-namespace Chrisbjr\ApiGuard\Http\Controllers;
+namespace Vzool\ApiHmacGuard\Http\Controllers;
 
 use EllipseSynergie\ApiResponse\Laravel\Response;
 use Illuminate\Routing\Controller;

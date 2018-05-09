@@ -1,15 +1,19 @@
 {
-    "name": "chrisbjr/api-guard",
-    "description": "A simple way of authenticating your APIs with API keys using Laravel",
+    "name": "vzool/api-hmac-guard",
+    "description": "A simple and secure way of authenticating your APIs with API HMAC keys using Laravel",
     "keywords": [
         "api",
+        "hmac",
         "rest",
         "json",
         "api keys",
+        "public key",
+        "private key",
+        "shared key",
         "api authentication",
         "laravel"
     ],
-    "homepage": "https://github.com/chrisbjr/api-guard",
+    "homepage": "https://github.com/vzool/api-hmac-guard",
     "authors": [
         {
             "name": "Chris Bautista",
@@ -18,6 +22,10 @@
         {
             "name": "Mark Jayson Fuentes",
             "email": "awkwardusername@gmail.com"
+        },
+        {
+            "name": "Abdelaziz Elrashed",
+            "email": "aeemh.sdn@gmail.com"
         }
     ],
     "require": {
@@ -31,7 +39,7 @@
     },
     "autoload": {
         "psr-4": {
-            "Chrisbjr\\ApiGuard\\": "src"
+            "Vzool\\ApiHmacGuard\\": "src"
         }
     },
     "minimum-stability": "stable"

@@ -1,8 +1,8 @@
 <?php
 
-namespace Chrisbjr\ApiGuard\Events;
+namespace Vzool\ApiHmacGuard\Events;
 
-use Chrisbjr\ApiGuard\Models\ApiKey;
+use Vzool\ApiHmacGuard\Models\ApiKey;
 use Illuminate\Queue\SerializesModels;
 
 class ApiKeyAuthenticated

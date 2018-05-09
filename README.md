@@ -1,4 +1,4 @@
-ApiGuard
+ApiHmacGuard
 ========
 
 [![Latest Stable Version](https://poser.pugx.org/chrisbjr/api-guard/v/stable)](https://packagist.org/packages/chrisbjr/api-guard) [![Total Downloads](https://poser.pugx.org/chrisbjr/api-guard/downloads)](https://packagist.org/packages/chrisbjr/api-guard)
@@ -14,13 +14,13 @@ A simple way of authenticating your APIs with API keys using Laravel. This packa
 
 **Laravel 5.3.x onwards: `~4.*`
 
-**Laravel 5.1.x to 5.2.x: [`~3.*`](https://github.com/chrisbjr/api-guard/blob/3.1/README.md)
+**Laravel 5.1.x to 5.2.x: [`~3.*`](https://github.com/vzool/api-hmac-guard/blob/3.1/README.md)
 
 **Laravel 5.1.x: `~2.*`
 
-**Laravel 4.2.x: [`~1.*`](https://github.com/chrisbjr/api-guard/tree/laravel4) (Recently updated version for Laravel 4. Please note that there are namespace changes here)
+**Laravel 4.2.x: [`~1.*`](https://github.com/vzool/api-hmac-guard/tree/laravel4) (Recently updated version for Laravel 4. Please note that there are namespace changes here)
 
-**Laravel 4.2.x: [`0.*`](https://github.com/chrisbjr/api-guard/tree/v0.7) (The version that most of you are using)
+**Laravel 4.2.x: [`0.*`](https://github.com/vzool/api-hmac-guard/tree/v0.7) (The version that most of you are using)
 
 ## Quick start
 
@@ -28,19 +28,19 @@ A simple way of authenticating your APIs with API keys using Laravel. This packa
 
 Run `composer require chrisbjr/api-guard 4.*`
 
-In your `config/app.php` add `Chrisbjr\ApiGuard\Providers\ApiGuardServiceProvider` to the end of the `providers` array
+In your `config/app.php` add `Vzool\ApiHmacGuard\Providers\ApiGuardServiceProvider` to the end of the `providers` array
 
 ```php
 'providers' => array(
 
     ...
-    Chrisbjr\ApiGuard\Providers\ApiGuardServiceProvider::class,
+    Vzool\ApiHmacGuard\Providers\ApiGuardServiceProvider::class,
 ),
 ```
 
 Now publish the migration and configuration files for api-guard:
 
-    $ php artisan vendor:publish --provider="Chrisbjr\ApiGuard\Providers\ApiGuardServiceProvider"
+    $ php artisan vendor:publish --provider="Vzool\ApiHmacGuard\Providers\ApiGuardServiceProvider"
 
 Then run the migration:
 
@@ -65,7 +65,7 @@ To generate an API key that is linked to another object (a "user", for example),
 To specify that a model can have API keys, you can attach the `Apikeyable` trait to the model:
 
 ```php
-use Chrisbjr\ApiGuard\Models\Mixins\Apikeyable;
+use Vzool\ApiHmacGuard\Models\Mixins\Apikeyable;
 
 class User extends Model
 {
@@ -89,10 +89,10 @@ $user->createApiKey();
 To generate an API key from within your application, you can use the following method in the `ApiKey` model:
 
 ```php
-$apiKey = Chrisbjr\ApiGuard\Models\ApiKey::make()
+$apiKey = Vzool\ApiHmacGuard\Models\ApiKey::make()
 
 // Attach a model to the API key
-$apiKey = Chrisbjr\ApiGuard\Models\ApiKey::make($model)
+$apiKey = Vzool\ApiHmacGuard\Models\ApiKey::make($model)
 ```
 
 ## Usage
@@ -176,7 +176,7 @@ class Book extends Model
 You can make a basic controller which will return all books like this:
 
 ```php
-use Chrisbjr\ApiGuard\Http\Controllers\ApiGuardController;
+use Vzool\ApiHmacGuard\Http\Controllers\ApiGuardController;
 use App\Transformers\BookTransformer;
 use App\Book;
 
@@ -243,7 +243,7 @@ ApiGuard comes with a request class that can handle validation of requests for y
 You can create a `Request` class as you usually do but in order to get a standard JSON response you'll have to extend the `ApiGuardFormRequest` class.
 
 ```php
-use Chrisbjr\ApiGuard\Http\Requests\ApiGuardFormRequest;
+use Vzool\ApiHmacGuard\Http\Requests\ApiGuardFormRequest;
 
 class BookStoreRequest extends ApiGuardFormRequest
 {
@@ -264,7 +264,7 @@ class BookStoreRequest extends ApiGuardFormRequest
 Now you can use this in your controller as you normally do with Laravel:
 
 ```php
-use Chrisbjr\ApiGuard\Http\Controllers\ApiGuardController;
+use Vzool\ApiHmacGuard\Http\Controllers\ApiGuardController;
 use App\Transformers\BookTransformer;
 use App\Book;
 

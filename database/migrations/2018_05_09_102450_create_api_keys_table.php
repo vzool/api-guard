@@ -16,13 +16,14 @@ class CreateApiKeysTable extends Migration
         Schema::create('api_keys', function (Blueprint $table) {
             $table->increments('id');
             $table->nullableMorphs('apikeyable');
-            $table->string('key', 50);
+            $table->string('public_key', 50);
+            $table->string('private_key', 50);
             $table->string('last_ip_address', 50)->nullable();
             $table->dateTime('last_used_at')->nullable();
             $table->nullableTimestamps();
             $table->softDeletes();
 
-            $table->index('key');
+            $table->index('public_key');
         });
     }
 

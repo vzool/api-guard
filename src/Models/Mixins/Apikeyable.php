@@ -1,8 +1,8 @@
 <?php
 
-namespace Chrisbjr\ApiGuard\Models\Mixins;
+namespace Vzool\ApiHmacGuard\Models\Mixins;
 
-use Chrisbjr\ApiGuard\Models\ApiKey;
+use Vzool\ApiHmacGuard\Models\ApiKey;
 
 trait Apikeyable
 {
