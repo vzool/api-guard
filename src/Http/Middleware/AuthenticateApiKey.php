@@ -34,7 +34,7 @@ class AuthenticateApiKey
         // calculate the shared key and compare it with the user token,
         // then check if client shared key(Token) matches server one.
         // Timing attack safe string comparison
-        if (!hash_equals($apiKey->shared_key(), $apiSharedKeyValue)) {
+        if (!hash_equals($apiKey->sharedKey(), $apiSharedKeyValue)) {
             return $this->unauthorizedResponse();
         }
 
