@@ -45,7 +45,7 @@ class ApiKey extends Model
      *
      * @return string
      */
-    public function shared_key()
+    public function sharedKey()
     {
         return self::calculateSharedKey($this->private_key);
     }
@@ -55,7 +55,7 @@ class ApiKey extends Model
      *
      * @return string
      */
-    public function public_key()
+    public function publicKey()
     {
         return $this->public_key;
     }
@@ -65,7 +65,7 @@ class ApiKey extends Model
      *
      * @return string
      */
-    public function private_key()
+    public function privateKey()
     {
         return null;
     }

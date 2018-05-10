@@ -55,8 +55,8 @@ class GenerateApiKey extends Command
         $this->info('====================================================');
         $this->info('An API keys was created with the following details: ');
         $this->info('====================================================');
-        $this->info('Public Key: ' . $apiKey->public_key());
-        $this->info('Shared Key: ' . $apiKey->shared_key());
+        $this->info('Public Key: ' . $apiKey->publicKey());
+        $this->info('Shared Key: ' . $apiKey->sharedKey());
         $this->info('====================================================');
         $this->info('In order to use these keys just set them in the headers:');
         $this->info('Header of Public Key: ' . config('apiguard.header_public_key'));

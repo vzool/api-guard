@@ -71,11 +71,11 @@ A simple way of authenticating your APIs with API HMAC keys using Laravel. This 
      "token" => "9f9de38c4405a747fc25dd146b2ee6a30e8ea627c7da26d5a616c4c2fcb9ec896b4020febcb4971a65b97959c5d5625a",
    ]
 >>> 
->>> $key->public_key()
+>>> $key->publicKey()
 => "-15af2b946b069d-5mQykkuMmF8UDZIuZkG8AdFfB3udhYkGW-"
->>> $key->shared_key()
+>>> $key->sharedKey()
 => "9f9de38c4405a747fc25dd146b2ee6a30e8ea627c7da26d5a616c4c2fcb9ec896b4020febcb4971a65b97959c5d5625a"
->>> $key->private_key()
+>>> $key->privateKey()
 => null // private keys are always protected and writable for one time
 
 ```
