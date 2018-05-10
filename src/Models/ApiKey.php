@@ -201,4 +201,18 @@ class ApiKey extends Model
     {
         return null;
     }
+
+    /**
+     * Set the public_key for once.
+     *
+     * @param  string  $value
+     * @return void
+     */
+    public function setPublicKeyAttribute($value)
+    {
+        if(!$this->public_key){
+
+            $this->attributes['public_key'] = $value;
+        }
+    }
 }
