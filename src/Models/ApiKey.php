@@ -123,7 +123,7 @@ class ApiKey extends Model
      * @param $public_key
      * @return string
      */
-    private static function generateSharedKey($public_key)
+    public static function generateSharedKey($public_key)
     {
 
         $apiKey = self::where('public_key', '=', $public_key)->limit(1)->first();
@@ -139,16 +139,17 @@ class ApiKey extends Model
      * A method to calculate the shared key
      *
      * @param $private_key
+     * @param $custom_app_key
      * @return string
      */
-    private static function calculateSharedKey($private_key){
+    public static function calculateSharedKey($private_key, $custom_app_key = null){
 
         // get laravel application as private key
 
-        $app_key = config('app.key');
+        $app_key = config('app.key', $custom_app_key);
 
         if(!$app_key){
-            return 'Your application does not has an app key, please generated use this command: `php artisan key:generate`';
+            return 'Your application does not has an app key, please generate it using this command: `php artisan key:generate`';
         }
 
         $algo = config('apiguard.hmac_algo', 'sha3-384');
@@ -164,7 +165,7 @@ class ApiKey extends Model
      * @param $key
      * @return bool
      */
-    private static function publicKeyExists($key)
+    public static function publicKeyExists($key)
     {
         $apiKeyCount = self::where('public_key', '=', $key)->limit(1)->count();
 
