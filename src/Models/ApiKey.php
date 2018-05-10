@@ -174,9 +174,9 @@ class ApiKey extends Model
         return false;
     }
 
-    /*=================================================*/
-    /* Some elequoent overrides to protect private key */
-    /*=================================================*/
+    /*============================================================*/
+    /* Some elequoent overrides to protect public & private keys */
+    /*==========================================================*/
 
     /**
      * Set the private_key for once.
@@ -190,16 +190,6 @@ class ApiKey extends Model
 
             $this->attributes['private_key'] = $value;
         }
-    }
-
-    /**
-     * Get the private_key.
-     *
-     * @return null
-     */
-    public function getPrivateKeyAttribute()
-    {
-        return null;
     }
 
     /**
