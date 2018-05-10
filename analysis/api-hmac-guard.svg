@@ -114,7 +114,7 @@
     <tspan x="715.034" y="317.082">3) Save key pairs into database</tspan>
   </text>
   <text font-size="16.9333" style="fill: #000000;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:normal" x="713.06" y="369.034">
-    <tspan x="713.06" y="369.034">5) Create shared key by HMAC([Server_Key], [Private_Key])</tspan>
+    <tspan x="713.06" y="369.034">5) Create shared key by HMAC([Server_Key], [Client_Private_Key])</tspan>
   </text>
   <g>
     <line style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x1="714.624" y1="495.34" x2="584.362" y2="494.41"/>
