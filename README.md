@@ -1,7 +1,7 @@
 ApiHmacGuard (Impersonate Protection Algorithm)
 ========
 
-[![Latest Stable Version](https://poser.pugx.org/vzool/api-hmac-guard/v/stable)](https://packagist.org/packages/vzool/api-hmac-guard) [![Total Downloads](https://poser.pugx.org/vzool/api-hmac-guard/downloads)](https://packagist.org/packages/vzool/api-hmac-guard)[![Join the chat at https://gitter.im/chrisbjr/api-guard](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/chrisbjr/api-guard?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+[![Latest Stable Version](https://poser.pugx.org/vzool/api-hmac-guard/v/stable)](https://packagist.org/packages/vzool/api-hmac-guard) [![Total Downloads](https://poser.pugx.org/vzool/api-hmac-guard/downloads)](https://packagist.org/packages/vzool/api-hmac-guard) [![Join the chat at https://gitter.im/chrisbjr/api-guard](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/chrisbjr/api-guard?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
 ![Impersonate Protection Algorithm](https://raw.githubusercontent.com/vzool/api-hmac-guard/master/analysis/api-hmac-guard.jpeg)
 
