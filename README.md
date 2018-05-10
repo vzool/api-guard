@@ -1,9 +1,7 @@
 ApiHmacGuard (Impersonate Protection Algorithm)
 ========
 
-[![Latest Stable Version](https://poser.pugx.org/vzool/api-hmac-guard/v/stable)](https://packagist.org/packages/vzool/api-hmac-guard) [![Total Downloads](https://poser.pugx.org/vzool/api-hmac-guard/downloads)](https://packagist.org/packages/vzool/api-hmac-guard)
-
-[![Join the chat at https://gitter.im/chrisbjr/api-guard](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/chrisbjr/api-guard?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+[![Latest Stable Version](https://poser.pugx.org/vzool/api-hmac-guard/v/stable)](https://packagist.org/packages/vzool/api-hmac-guard) [![Total Downloads](https://poser.pugx.org/vzool/api-hmac-guard/downloads)](https://packagist.org/packages/vzool/api-hmac-guard)[![Join the chat at https://gitter.im/chrisbjr/api-guard](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/chrisbjr/api-guard?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
 ![Impersonate Protection Algorithm](https://raw.githubusercontent.com/vzool/api-hmac-guard/master/analysis/api-hmac-guard.jpeg)
 
@@ -45,7 +43,9 @@ A simple way of authenticating your APIs with API HMAC keys using Laravel. This 
 - `X-Auth-EndPoint`: this is a `public_key`
 - `X-Auth-Token`: this is a `shared_key`
 
-So, you should send these two keys to your clients and make them send it back to server.
+9- If you don't like a default headers name, then you can update them from `apiguard.php` config file.
+
+10- You should send these two keys `public_key` & `shared_key` to your clients and make them send it back to server in order to be identified.
 
 ### Quick Example
 
