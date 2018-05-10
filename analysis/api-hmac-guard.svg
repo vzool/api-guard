@@ -122,12 +122,12 @@
     <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="576.862,494.356 586.897,489.428 584.362,494.41 586.826,499.427 "/>
   </g>
   <text font-size="16.9333" style="fill: #000000;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:normal" x="718.06" y="421.038">
-    <tspan x="718.06" y="421.038">6) [Shared_Key]: 9f9de38c4405a747fc25dd146b2ee6a3</tspan>
-    <tspan x="718.06" y="442.205">                           0e8ea627c7da26d5a616c4c2fcb9ec89</tspan>
-    <tspan x="718.06" y="463.371">                           6b4020febcb4971a65b97959c5d5625a</tspan>
+    <tspan x="718.06" y="421.038">6) [Client_Shared_Key]: 9f9de38c4405a747fc25dd146b2ee6a3</tspan>
+    <tspan x="718.06" y="442.205">                                      0e8ea627c7da26d5a616c4c2fcb9ec89</tspan>
+    <tspan x="718.06" y="463.371">                                      6b4020febcb4971a65b97959c5d5625a</tspan>
   </text>
   <text font-size="16.9333" style="fill: #000000;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:normal" x="717.886" y="499.984">
-    <tspan x="717.886" y="499.984">7) Send [Shared_Key] &amp; [Public_Key]</tspan>
+    <tspan x="717.886" y="499.984">7) Send [Client_Shared_Key] &amp; [Client_Public_Key]</tspan>
   </text>
   <text font-size="84.6667" style="fill: #000000;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:normal" x="32.268" y="318.028">
     <tspan x="32.268" y="318.028">Login</tspan>
